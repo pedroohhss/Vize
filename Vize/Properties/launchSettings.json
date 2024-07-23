@@ -4,27 +4,17 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:5856",
-      "sslPort": 44312
+      "applicationUrl": "http://localhost:5510",
+      "sslPort": 7510
     }
   },
   "profiles": {
-    "http": {
+    "Vize.API": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
       "launchUrl": "swagger",
-      "applicationUrl": "http://localhost:5138",
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      }
-    },
-    "https": {
-      "commandName": "Project",
-      "dotnetRunMessages": true,
-      "launchBrowser": true,
-      "launchUrl": "swagger",
-      "applicationUrl": "https://localhost:7155;http://localhost:5138",
+      "applicationUrl": "https://localhost:7510;http://localhost:5510",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
