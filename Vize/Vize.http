@@ -1,0 +1,6 @@
+@Vize_HostAddress = http://localhost:5138
+
+GET {{Vize_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
