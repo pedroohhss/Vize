@@ -2,6 +2,8 @@ using Microsoft.EntityFrameworkCore;
 using Vize.API.Infra;
 using Vize.API.Infra.Repository.Produtos;
 using Vize.API.Infra.Repository.Tipo;
+using Vize.API.Service.Produtos;
+using Vize.API.Service.TipoProdutos;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +19,9 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddTransient<IProdutoRepository, ProdutoRepository>();
 builder.Services.AddTransient<ITipoProdutoRepository, TipoProdutoRepository>();
+
+builder.Services.AddTransient<IProdutoService, ProdutoService>();
+builder.Services.AddTransient<ITipoProdutoService, TipoProdutoService>();
 
 var app = builder.Build();
 

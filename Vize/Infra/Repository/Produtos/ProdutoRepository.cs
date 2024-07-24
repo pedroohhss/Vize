@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 using Vize.API.Entities;
 
 namespace Vize.API.Infra.Repository.Produtos;
@@ -16,18 +17,18 @@ public class ProdutoRepository : IProdutoRepository
     {
         await Task.Run(delegate
         {
-            _appDbContext.Set<Produto>().Remove(produto);
+            _appDbContext.Entry(produto).State = EntityState.Deleted;
         });
     }
 
-    public async Task<Produto> GetById(long id)
+    public async Task<TDTO> GetById<TDTO>(long id, Expression<Func<Produto, TDTO>> expression)
     {
-        return await _appDbContext.Set<Produto>().Where(x => x.Id == id).FirstOrDefaultAsync();
+        return await _appDbContext.Produto.AsNoTracking().Where(x => x.Id == id).Include(x => x.TipoProduto).Select(expression).FirstOrDefaultAsync();
     }
 
-    public async Task<List<Produto>> GetList()
+    public async Task<List<TDTO>> GetList<TDTO>(Expression<Func<Produto, TDTO>> expression)
     {
-        return await _appDbContext.Set<Produto>().ToListAsync();
+        return await _appDbContext.Produto.AsNoTracking().Include(x => x.TipoProduto).Select(expression).ToListAsync();
     }
 
     public async Task Insert(Produto produto)
@@ -42,7 +43,7 @@ public class ProdutoRepository : IProdutoRepository
     {
         await Task.Run(delegate
         {
-            _appDbContext.Set<Produto>().Update(produto);
+            _appDbContext.Entry(produto).State = EntityState.Modified;
         });
     }
 }
