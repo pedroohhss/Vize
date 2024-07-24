@@ -9,6 +9,8 @@ namespace Vize.API.Authentication;
 
 public class BasicAuthentication : AuthenticationHandler<AuthenticationSchemeOptions>
 {
+    protected readonly string username = "admin";
+    protected readonly string password = "12345";
     public BasicAuthentication(
         IOptionsMonitor<AuthenticationSchemeOptions> options,
         ILoggerFactory logger,
@@ -35,7 +37,7 @@ public class BasicAuthentication : AuthenticationHandler<AuthenticationSchemeOpt
                 var username = credentials[0];
                 var password = credentials[1];
 
-                if (username == "admin" && password == "12345")
+                if (username == this.username && password == this.password)
                 {
                     var claims = new[] { new Claim(ClaimTypes.Name, username) };
                     var identity = new ClaimsIdentity(claims, Scheme.Name);
