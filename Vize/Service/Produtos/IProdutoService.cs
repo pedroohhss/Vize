@@ -9,4 +9,5 @@ public interface IProdutoService
     Task Delete(long id);
     Task<List<ProdutoResponse>> GetList();
     Task<ProdutoResponse> GetById(long id);
+    Task<List<ProdutoDashboardResponse>> GetDashboard();
 }

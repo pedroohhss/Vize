@@ -106,6 +106,11 @@ public class ProdutoService : IProdutoService
         });
     }
 
+    public async Task<List<ProdutoDashboardResponse>> GetDashboard()
+    {
+        return await _repository.GetDashboard();
+    }
+
     public async Task<List<ProdutoResponse>> GetList()
     {
         return await _repository.GetList(x => new ProdutoResponse()

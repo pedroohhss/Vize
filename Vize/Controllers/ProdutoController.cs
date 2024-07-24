@@ -78,10 +78,18 @@ public class ProdutoController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<ProdutoResponse>))]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProdutoResponse))]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> GetById(long id)
     {
         return Ok(await _service.GetById(id));
+    }
+
+    [HttpGet("dashboard")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<ProdutoDashboardResponse>))]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> GetDashboard()
+    {
+        return Ok(await _service.GetDashboard());
     }
 }
