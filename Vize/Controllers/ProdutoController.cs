@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Vize.API.Infra;
 using Vize.API.Model;
 using Vize.API.Service.Produtos;
@@ -6,6 +7,7 @@ using Vize.API.Service.Produtos;
 namespace Vize.API.Controllers;
 [ApiController]
 [Route("[controller]")]
+[Authorize]
 public class ProdutoController : ControllerBase
 {
     private readonly IProdutoService _service;
