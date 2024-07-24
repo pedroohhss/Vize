@@ -10,11 +10,11 @@
 
 ### Como Instanciar o Banco de Dados
 
-1. Pegue a string de conexão que será utilizado e adicione a mesma no arquivo `appsettings.Development.json` em `ConnectionStrings | Default`
- 1.1. Altere o nome do `Server` para o servidor escolhido a ser utilizado. Coloque a `Port` do servidor também.
- 1.2. Altere o `user` e o `password` para a aplicação ter acesso ao servidor.
- 1.3. (Opcional) Altere o nome do banco de dados na propriedade `Database`
-2. Após isso é só rodar a aplicação que a própria aplicação ira criar o banco de dados no servidor para você, junto às tabelas.
+1. Pegue a string de conexão que será utilizado e adicione a mesma no arquivo `appsettings.Development.json` em `ConnectionStrings | Default`.
+2. Altere o nome do `Server` para o servidor escolhido a ser utilizado. Coloque a `Port` do servidor também.
+3. Altere o `user` e o `password` para a aplicação ter acesso ao servidor.
+4. (Opcional) Altere o nome do banco de dados na propriedade `Database`.
+5. Após isso é só rodar a aplicação que a própria aplicação ira criar o banco de dados no servidor para você, junto às tabelas.
 
 ### Acesso ao Sistema
 
